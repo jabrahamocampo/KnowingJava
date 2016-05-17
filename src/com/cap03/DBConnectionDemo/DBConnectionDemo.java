@@ -9,6 +9,7 @@ public class DBConnectionDemo {
 
 	public static void main(String[] args){
 		//Establecemos los parametros de la conexion
+		//Test
 		final String usr = "root";
 		final String pwd = "";
 		final String driver = "com.mysql.jdbc.Driver";
