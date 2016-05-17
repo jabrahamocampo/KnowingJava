@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<connection-pool>
+	<jdbc>
+		<connection name="HSQLDB"
+					user="sa"
+					pwd=""
+					driver="driver1"
+					url="www.patito.com"/>
+					
+		<connection name="ORACLE"
+					user="jo"
+					pwd=""	
+					driver="driver2"
+					url="www.gansito.com"/>
+	</jdbc>
+	
+	<pools>
+		
+		<pool name="P1"
+			  connection="HSQLDB"
+			  minsize="3"
+			  maxsize="6"
+			  steep="3" />
+			  
+		<pool name="P2"
+			  connection="HSQLDB"
+			  minsize="10"
+			  maxsize="30"
+			  steep="5"/>
+			  
+		<pool name="P3"
+			  connection="ORACLE"
+			  minsize="5"
+			  maxsize="10"
+			  steep="2"/>	  
+			  
+	</pools>					
+</connection-pool>
