@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
+	at com.cap13.IOStream.Demo2.main(Demo2.java:18)

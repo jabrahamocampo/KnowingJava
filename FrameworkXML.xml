@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<framework>
+<data-access>
+<connection-pool user = "root"
+				 pwd =""
+				driver = "com.mysql.jdbc.Driver"
+				url = "jdbc:mysql://localhost/emp" />
+					
+		
+	<mapping>
+		
+		<table name="DEPT" type="com.cap04.DisenoDeApp1.DeptDTO">
+			  <field name="deptno"
+			  		att="deptno"
+			  		type="int"
+			  		pk="true" />
+			  		
+			  <field name="dname"
+			  		type="String"/>
+			  		
+			  <field name="loc" 
+			  		type="String"
+			  		att="loc" />
+		</table>	  				
+		
+		<table name="EMP" type="com.cap04.DisenoDeApp1.EmpDTO">
+			  <field name="empno"
+			  		att="empno"
+			  		type="int"
+			  		pk="true" />
+			  		
+			  <field name="ename"
+			  		type="String"
+			  		attr="ename"/>
+			  		
+			  <field name="hiredate" 
+			  		type="java.sql.Date"
+			  		att="hiredate" />
+			  		
+			  <field name="deptno"
+			  		type="int"
+			  		attr="deptno" />		
+		</table>
+	</mapping>						
+</data-access>
+
+<!-- Mappeo de beans para implementar un factory -->
+<bean-access>
+	<bean name="FACADE"
+		  type="com.cap04.DisenoDeApp1.FacadeAbstractImplementation"
+		  singleton="false" />
+	<bean name="EMP"
+		  type="com.cap04.DisenoDeApp1.EmpDAOSQLDBImplementation"
+		  singleton="true" />	  	
+</bean-access>
+</framework>

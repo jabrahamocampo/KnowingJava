@@ -1,0 +1,7 @@
+1 Jaime
+2 Berta
+3 Motek
+4 Teresa
+5 Clarisa
+6 Jose
+0 FIN
