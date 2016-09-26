@@ -47,4 +47,42 @@ public class DeptDAO {
 			}
 		}
 	}
+	
+	public Collection<DeptDTO> getDeptosByName(String deptoName){
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		try{
+			con = UConnection.getConnection();
+			
+			String sql = "select * from dept where dname = ?";
+			pstm = con.prepareStatement(sql);
+			pstm.setString(2, deptoName);
+			rs = pstm.executeQuery();
+			
+			Vector<DeptDTO> result = new Vector<>();
+			
+			DeptDTO depto = null;
+			while(rs.next()){
+				depto = new DeptDTO();
+				depto.setDeptNo(rs.getInt("deptno"));
+				depto.setdName(rs.getString("dname"));
+				depto.setLoc(rs.getString("loc"));
+				result.add(depto);
+			}
+			return result;
+		}catch(Exception ex){
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}finally{
+			try{
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+			}catch(Exception ex){
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
+			}
+		}
+	}
 }
